@@ -1,8 +1,10 @@
 */
+var iFileName = "Fighter - Primal Warrior [Avengers Archetypes transcribed by Billius].js";
+RequiredSheetVersion(12.999)
 
 SourceList["AA:5th"] = {
 	name : "Primal Warrior",
-	abbreviation : "AA:PW",
+	abbreviation : "AA-PW",
 	group : "Dungeon Masters Guild",
 	url : "https://www.dmsguild.com/product/275965/Avenging-Archetypes--A-5th-Edition-Archetype-Collection",
 	date : "2018/04/18"
@@ -85,10 +87,11 @@ WeaponsList["panther claws"] = {
 	source : ["AA", 8],
 	list : "natural",
 	ability : 2,
+	abilityalt : 1,
 	type: "natural",
 	damage : [1, 4, "Blg, Per, Sls"],
 	range : "5 ft",
-	weight : 0,
-	description : "Light, This increases to a d6 at 8th level, d8 at 13th level, d10 at 17th level ",
+	weight : 0.0,
+	description : "Light, This increases to a d6 at 8th level, d8 at 13th level, d10 at 17th level. ",
 	abilitytodamage : true,
 };
