@@ -1,0 +1,94 @@
+*/
+
+SourceList["AA:5th"] = {
+	name : "Primal Warrior",
+	abbreviation : "AA:PW",
+	group : "Dungeon Masters Guild",
+	url : "https://www.dmsguild.com/product/275965/Avenging-Archetypes--A-5th-Edition-Archetype-Collection",
+	date : "2018/04/18"
+};
+
+AddSubClass("fighter", "primal warrior", {
+	regExpSearch : /primal warrior/i,
+	subname : "Primal Warrior",
+	source : ["AA", 8],
+	fullname : "Primal Warrior",
+	abilitySave : 1,
+	abilitySaveAlt : 2,
+	features : {
+		"subclassfeature3" : {
+			name : "Warrior of The Wild",
+			source : ["AA", 8],
+			minlevel : 3,
+			description : "\n   " + "You fight with the ferocity of a beast, tearing apart foes with your bare hands. Your skin becomes as tough as any metal, gaining the ability to absorb the kinetic energy",
+		},
+		"subclassfeature3.1" : {
+			name : "Panther Claws",
+			source : ["AA", 8],
+			minlevel : 3,
+			description : desc([
+				"Starting at 3rd level your unarmed attacks are empowered by the primal instincts buried deep inside you",
+				"All unarmed attacks deal 1d4 + Strength or Dexterity modifier as bludgeoning, piercing or slashing damage",
+				"This increases to a d6 at 8th level, to a d8 at 13th level and to a d10 at 17th level",
+			]),
+					},
+		"subclassfeature7" : {
+			name : "Beastial Agility",
+			source : ["AA", 8],
+			minlevel : 7,
+			description : desc([
+				"Starting at 7th level you gain a climb speed equal to your movement speed",
+				"In addition you can cast the jump spell as a bonus action without expending a spell slot"
+			]),
+					},
+		"subclassfeature10" : {
+			name : "Kinetic Force",
+			source : ["AA", 8],
+			minlevel : 10,
+			description : desc([
+				"Starting at 10th level whenever you take at least 10 points of damage from an attack you gain 1 Kinetic Point",
+				"The maximum number of Kinetic Points you can store is equal to your proficiency bonus",
+				"The next time you hit a creature you can expend a Kinetic point to deal 1d8 extra damage",
+				"At 15th level you can expend 2 Kinetic Points at once. This increases to 3 at 20th level"
+			recovery : "Take >=10 pts Dmg",
+			usages : "Proficiency modifier per ",
+			usagescalc : "event.value = Math.max(1, What('Prof Mod'));"
+			]),
+	  				},
+		},
+		"subclassfeature15" : {
+			name : "Kinetic Explosion",
+			source : ["AA", 8],
+			minlevel : 15,
+			description : desc([
+				"Starting from 15th level you can use an action to strike the ground causing a wave of Kinetic Energy to fire out 10 feet in every direction",
+				"When you do this you choose a number of Kinetic Points to spend",
+				"All creatures in the area suffer 1d10 magical bludgeoning damage for each Kinetic Point spent",
+				"A creature that takes at least 20 points of damage is knocked 10 feet away",
+				"A creature suffering at least 40 points of damage is knocked 10 feet away and falls prone",
+			action : ["action", "Kinetic Explosion"]
+		},
+		"subclassfeature18" : {
+			name : "I Never Freeze",
+			source : ["AA", 2],
+			minlevel : 18,
+			description : desc([
+				"Starting at 18th level you become immune to fear",
+				"In addition you have advantage on saving throws and checks against spells and magical effects that would reduce you movement speed",
+			}
+		}
+});
+
+WeaponsList["panther claws"] = {
+	regExpSearch : /^(?=.*panther)(?=.*claws).*$/i,
+	name : "Panther claws",
+	source : ["AA", 8],
+	list : "natural",
+	ability : 2,
+	type: "natural",
+	damage : [1, 4, "Blg, Per, Sls"],
+	range : "5 ft",
+	weight : 0,
+	description : "Light, This increases to a d6 at 8th level, d8 at 13th level, d10 at 17th level ",
+	abilitytodamage : true,
+};
